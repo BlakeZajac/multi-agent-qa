@@ -1,6 +1,9 @@
 # Ignore everything in the root
 /*
 
+# Ignore Python cache
+__pycache__/
+
 # Allow all files in the .agents and .agentsignore directories
 !.agents/
 !.agentsignore/
