@@ -15,7 +15,7 @@ API_BASE = os.getenv("OPENAI_API_BASE", "http://localhost:11434/v1")
 
 class RefactorAgent:
     """
-    Refactor agent that suggests code consolidation, standardization, and improvements.
+    Refactor agent that suggests code consolidation, standardisation, and improvements.
     """
     
     def __init__(self):
@@ -37,7 +37,7 @@ class RefactorAgent:
     
     def propose_refactors(self, qa_issues, codebase_path="."):
         """
-        Analyze QA issues and codebase to propose refactoring suggestions.
+        Analyse QA issues and codebase to propose refactoring suggestions.
 
         Args:
             qa_issues (list): List of issues from StaticCodeQAAgent
@@ -50,7 +50,7 @@ class RefactorAgent:
         consolidation_issues = [i for i in qa_issues if "consolidat" in i.get("issue", "").lower()]
         duplicate_code_issues = [i for i in qa_issues if "duplicate" in i.get("issue", "").lower()]
         
-        prompt = f"""You are analyzing a WordPress/WooCommerce codebase for refactoring opportunities.
+        prompt = f"""You are analysing a WordPress/WooCommerce codebase for refactoring opportunities.
 
 **Key Patterns to Look For:**
 
@@ -74,14 +74,14 @@ class RefactorAgent:
    - Functions missing `rb_` prefix
    - Inconsistent naming conventions
 
-5. **ACF Pattern Standardization:**
+5. **ACF Pattern Standardisation:**
    - Inconsistent ACF field access patterns
    - Opportunities to create reusable ACF field helpers
 
 **QA Issues Found:**
 {json.dumps(qa_issues[:50], indent=2)}  # Limit to first 50 for context
 
-Analyze the codebase and provide refactoring suggestions. Return JSON array:
+Analyse the codebase and provide refactoring suggestions. Return JSON array:
 
 [
   {{

@@ -68,8 +68,8 @@ class StaticCodeQAAgent:
         return issues
 
     def _analyse_php_content(self, file_path, content):
-        """Use LLM to analyze PHP content for quality issues."""
-        prompt = f"""You are analyzing PHP code for a WordPress/WooCommerce project. 
+        """Use LLM to analyse PHP content for quality issues."""
+        prompt = f"""You are analysing PHP code for a WordPress/WooCommerce project. 
 The codebase follows these patterns from the "after-qa" version:
 
 **Array Access Patterns:**

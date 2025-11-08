@@ -29,9 +29,9 @@ class SummaryAgent:
         self.agent = Agent(
             role="QA Report Compiler",
             goal="Compile comprehensive QA reports with severity, recommendations, and references",
-            backstory="""You are an expert technical writer specializing in code quality reports.
+            backstory="""You are an expert technical writer specialising in code quality reports.
             You compile QA findings into clear, actionable reports with proper severity classification,
-            prioritized recommendations, and references to documentation.""",
+            prioritised recommendations, and references to documentation.""",
             llm=self.llm,
             verbose=True,
         )
@@ -84,8 +84,8 @@ Create a well-structured Markdown report with:
 2. **Critical Issues (Errors)** - Must-fix items with code examples
 3. **Warnings** - Should-fix items
 4. **Info** - Nice-to-have improvements
-5. **Refactoring Opportunities** - Code consolidation and standardization suggestions
-6. **Recommendations** - Prioritized action items
+5. **Refactoring Opportunities** - Code consolidation and standardisation suggestions
+6. **Recommendations** - Prioritised action items
 7. **References** - Links to WordPress/WooCommerce documentation
 
 Format the report professionally with proper headings, code blocks, and tables.

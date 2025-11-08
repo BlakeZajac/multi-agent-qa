@@ -15,7 +15,7 @@ from summary_agent import SummaryAgent
 load_dotenv()
 
 def main():
-    # Initialize agents
+    # Initialise agents
     qa_agent = StaticCodeQAAgent(ignore_file=".agentsignore")
     refactor_agent = RefactorAgent()
     summary_agent = SummaryAgent()
@@ -28,7 +28,7 @@ def main():
     print(f"\nFound {len(qa_issues)} QA issues")
     
     # Run refactor suggestions
-    print("\nAnalyzing refactoring opportunities...")
+    print("\nAnalysing refactoring opportunities...")
     refactor_suggestions = refactor_agent.propose_refactors(qa_issues)
     
     print(f"Found {len(refactor_suggestions)} refactoring suggestions")
