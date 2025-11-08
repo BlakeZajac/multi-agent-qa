@@ -6,11 +6,13 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Add .agents directory to Python path
-sys.path.insert(0, str(Path(__file__).parent / ".agents"))
+agents_dir = Path(__file__).parent / ".agents"
+sys.path.insert(0, str(agents_dir))
 
-from static_code_qa import StaticCodeQAAgent
-from refactor_agent import RefactorAgent
-from summary_agent import SummaryAgent
+# Import agents (linter may show warning but works at runtime)
+from static_code_qa import StaticCodeQAAgent  # type: ignore
+from refactor_agent import RefactorAgent  # type: ignore
+from summary_agent import SummaryAgent  # type: ignore
 
 load_dotenv()
 
