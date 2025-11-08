@@ -195,7 +195,7 @@ run_agents.py
 
 1. Add the following to your `.env` file:
 
-```json
+```
 OPENAI_API_BASE=http://localhost:11434/v1
 MODEL=gpt-oss:20b
 BUGHERD_API_KEY=<optional, for read-only fetching>
