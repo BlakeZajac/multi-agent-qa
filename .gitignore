@@ -1,0 +1,7 @@
+# Ignore everything in the root
+/*
+
+# Allow build, config and gitignore files
+!.gitignore
+!.editorconfig
+!README.md
