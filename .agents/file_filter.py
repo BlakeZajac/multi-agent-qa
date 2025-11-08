@@ -1,5 +1,6 @@
 import os
 import fnmatch
+import re
 from pathlib import Path
 
 class GitIgnoreFilter:
@@ -111,11 +112,11 @@ class GitIgnoreFilter:
         for root, dirs, files in os.walk(root_path):
             # Filter out ignored directories
             dirs[:] = [d for d in dirs if not self.should_ignore(
-                os.path.replace(os.path.join(root, d), root_path).replace("\\", "/")
+                os.path.relpath(os.path.join(root, d), root_path).replace("\\", "/")
             )]
 
             for file in files:
-                file_path = os.path.json(root, file)
+                file_path = os.path.join(root, file)
                 rel_path = os.path.relpath(file_path, root_path).replace("\\", "/")
 
                 # Check file extension filter

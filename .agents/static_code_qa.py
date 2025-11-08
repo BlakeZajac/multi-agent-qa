@@ -12,7 +12,7 @@ load_dotenv()
 MODEL = os.getenv("MODEL", "gpt-oss:20b")
 API_BASE = os.getenv("OPENAI_API_BASE", "http://localhost:11434/v1")
 
-class StaticCodeQAAgent(Agent):
+class StaticCodeQAAgent:
     """
     Static code QA agent that analyses PHP files for WordPress/WooCommerce best practices.
     Detects: unguarded array keys, missing sanitisation, missing rb_prefixes, and more.
@@ -68,8 +68,8 @@ class StaticCodeQAAgent(Agent):
         return issues
 
     def _analyse_php_content(self, file_path, content):
-        """Use LLM to analyse PHP content for quality issues."""
-        prompt = f"""You are analysing PHP code for a WordPress/WooCommerce project. 
+        """Use LLM to analyze PHP content for quality issues."""
+        prompt = f"""You are analyzing PHP code for a WordPress/WooCommerce project. 
 The codebase follows these patterns from the "after-qa" version:
 
 **Array Access Patterns:**
@@ -107,9 +107,13 @@ The codebase follows these patterns from the "after-qa" version:
 - Proper nonce verification for forms
 - Use wpdb->prepare() for database queries
 
-Analyse the following PHP code and identify ALL issues:
+Analyse the following PHP code in {file_path} and identify ALL issues:
 
-{content}Return a JSON array of issues. Each issue must have:
+```php
+{content}
+```
+
+Return a JSON array of issues. Each issue must have:
 - "severity": "error" | "warning" | "info"
 - "file": "{file_path}"
 - "line": <line_number>
