@@ -4,14 +4,12 @@
 # Ignore Python cache
 __pycache__/
 
-# Allow all files in the .agents and .agentsignore directories
+# Allow all files in the .agents directory
 !.agents/
-!.agentsignore/
-
-# Allow the run_agents.py file
-!run_agents.py
 
 # Allow build, config and gitignore files
+!.agentsignore
 !.gitignore
 !.editorconfig
 !README.md
+!run_agents.py

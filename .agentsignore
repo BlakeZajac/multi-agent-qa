@@ -1,0 +1,53 @@
+# Ignore everything in the root
+/*
+
+# Allow build, config and gitignore files
+!.gitignore
+!.editorconfig
+!gulpfile.js
+!package.json
+!package-lock.json
+!README.md
+!.wpe-push-ignore
+!.wpe-pull-ignore
+
+# Allow the "src", "static" and "wp-content" directories
+!src/
+!static/
+!wp-content/
+
+# Ignore everything in the "wp-content" directory, except the "plugins" and "themes" directories.
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/mu-plugins/
+
+# Ignore everything in the "plugins" directory, except directories prefixed with "rb-"
+wp-content/plugins/*
+!wp-content/plugins/rb-*/
+
+# Ignore everything in the "mu-plugins" directory, except files prefixed with "rb-"
+wp-content/mu-plugins/*
+!wp-content/mu-plugins/rb-*
+
+# Ignore everything in the "themes" directory, except directories prefixed with "rb-"
+wp-content/themes/*
+!wp-content/themes/rb-*/
+
+# Ignore all compiled files
+**/js/script.min.js
+**/js/script.min.js.map
+**/js/admin.min.js
+**/js/admin.min.js.map
+**/js/tinymce-table.min.js
+**/css/style.min.css
+**/css/style.min.css.map
+**/images/*
+!src/images/*
+!src/images/base64
+!src/images/svg
+!**/images/*.svg
+**/images/icon-sprite.svg
+static/images/*
+!wp-content/themes/**/components
+wp-content/themes/**/components/*
